@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EB89A16-9850-472F-B3D7-D04491B87B9D}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>VirtualSales.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>VirtualSales.iOS.Common</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Annotations\AnnotationAddedEventArgs.cs" />
+    <Compile Include="Annotations\AnnotationRenderer.cs" />
+    <Compile Include="Annotations\AnnotationView.cs" />
+    <Compile Include="Annotations\IOSAnnotationRenderer.cs" />
+    <Compile Include="AppServices\PlatformServices.cs" />
+    <Compile Include="AppServices\Settings.cs" />
+    <Compile Include="DraggableList\DraggableGestureRecognizerDelegate.cs" />
+    <Compile Include="DraggableList\DraggableListFlowLayoutBase.cs" />
+    <Compile Include="DraggableList\DraggableListSourceFlowLayout.cs" />
+    <Compile Include="DraggableList\DraggableListTargetFlowLayout.cs" />
+    <Compile Include="DraggableList\IDraggableDataSource.cs" />
+    <Compile Include="DraggableList\UIViewExtensions.cs" />
+    <Compile Include="Dummy.cs" />
+    <Compile Include="iOSViewModelLocator.cs" />
+    <Compile Include="WhiteBrandAppDelegate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextFieldCurrencyDelegate.cs" />
+    <Compile Include="ViewControllers\AvailableToolsContainerViewController.cs" />
+    <Compile Include="ViewControllers\AvailableToolsContainerViewController.designer.cs">
+      <DependentUpon>AvailableToolsContainerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\AvailableToolsViewController.cs" />
+    <Compile Include="ViewControllers\AvailableToolsViewController.designer.cs">
+      <DependentUpon>AvailableToolsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NavigationPaneViewController.designer.cs">
+      <DependentUpon>NavigationPaneViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NavigationPaneViewController.cs" />
+    <Compile Include="ViewControllers\SelectedToolsViewController.cs" />
+    <Compile Include="ViewControllers\SelectedToolsViewController.designer.cs">
+      <DependentUpon>SelectedToolsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ToolCell.cs" />
+    <Compile Include="ViewControllers\ToolCell.designer.cs">
+      <DependentUpon>ToolCell.cs</DependentUpon>
+    </Compile>
+    <None Include="ViewControllers\ADLServiceListener.cs" />
+    <Compile Include="ViewControllers\AnnotationsToolViewController.cs" />
+    <Compile Include="ViewControllers\AnnotationsToolViewController.designer.cs">
+      <DependentUpon>AnnotationsToolViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ClientInfoViewController.cs" />
+    <Compile Include="ViewControllers\ClientInfoViewController.designer.cs">
+      <DependentUpon>ClientInfoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\LoginViewController.cs" />
+    <Compile Include="ViewControllers\LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MeetingListViewController.cs" />
+    <Compile Include="ViewControllers\MeetingListViewController.designer.cs">
+      <DependentUpon>MeetingListViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MeetingSlidesViewController.cs" />
+    <Compile Include="ViewControllers\MeetingSlidesViewController.designer.cs">
+      <DependentUpon>MeetingSlidesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\MeetingViewController.cs" />
+    <Compile Include="ViewControllers\MeetingViewController.designer.cs">
+      <DependentUpon>MeetingViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\PresentationViewController.cs" />
+    <Compile Include="ViewControllers\PresentationViewController.designer.cs">
+      <DependentUpon>PresentationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ToolBoxViewController.cs" />
+    <Compile Include="ViewControllers\ToolBoxViewController.designer.cs">
+      <DependentUpon>ToolBoxViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ToolNavigationController.cs" />
+    <Compile Include="ViewControllers\ToolNavigationController.designer.cs">
+      <DependentUpon>ToolNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\BasicInformation\BasicInformationToolPage1ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\BasicInformation\BasicInformationToolPage1ViewController.designer.cs">
+      <DependentUpon>BasicInformationToolPage1ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\BasicInformation\BasicInformationToolPage2ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\BasicInformation\BasicInformationToolPage2ViewController.designer.cs">
+      <DependentUpon>BasicInformationToolPage2ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\BasicInformation\BasicInformationToolPage3ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\BasicInformation\BasicInformationToolPage3ViewController.designer.cs">
+      <DependentUpon>BasicInformationToolPage3ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\DividendInterestRate\DividendInterestRateToolPage1ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\DividendInterestRate\DividendInterestRateToolPage1ViewController.designer.cs">
+      <DependentUpon>DividendInterestRateToolPage1ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\LifetimeEconomicValueTool\LifetimeEconomicValueToolPage2ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\LifetimeEconomicValueTool\LifetimeEconomicValueToolPage2ViewController.designer.cs">
+      <DependentUpon>LifetimeEconomicValueToolPage2ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\LifetimeEconomicValueTool\LifetimeEconomicValueToolPage1ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\LifetimeEconomicValueTool\LifetimeEconomicValueToolPage1ViewController.designer.cs">
+      <DependentUpon>LifetimeEconomicValueToolPage1ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\TypesOfInsurance\TypesOfInsuranceToolPage1ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\TypesOfInsurance\TypesOfInsuranceToolPage1ViewController.designer.cs">
+      <DependentUpon>TypesOfInsuranceToolPage1ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\UpcomingMeetingViewCell.cs" />
+    <Compile Include="ViewControllers\UpcomingMeetingViewCell.designer.cs">
+      <DependentUpon>UpcomingMeetingViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\UserInfoViewController.cs" />
+    <Compile Include="ViewControllers\UserInfoViewController.designer.cs">
+      <DependentUpon>UserInfoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\VideoConferenceViewController.cs" />
+    <Compile Include="ViewControllers\VideoConferenceViewController.designer.cs">
+      <DependentUpon>VideoConferenceViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewForExtensions.cs" />
+    <Compile Include="ViewControllers\RootNavigationController.cs" />
+    <Compile Include="ViewControllers\RootNavigationController.designer.cs">
+      <DependentUpon>RootNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\SampleTool\SampleToolPage1ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\SampleTool\SampleToolPage1ViewController.designer.cs">
+      <DependentUpon>SampleToolPage1ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\SampleTool\SampleToolPage2ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\SampleTool\SampleToolPage2ViewController.designer.cs">
+      <DependentUpon>SampleToolPage2ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\SampleTool\SampleToolPage3ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\SampleTool\SampleToolPage3ViewController.designer.cs">
+      <DependentUpon>SampleToolPage3ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\AnotherSampleTool\AnotherSampleToolPage1ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\AnotherSampleTool\AnotherSampleToolPage1ViewController.designer.cs">
+      <DependentUpon>AnotherSampleToolPage1ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Tools\AnotherSampleTool\AnotherSampleToolPage2ViewController.cs" />
+    <Compile Include="ViewControllers\Tools\AnotherSampleTool\AnotherSampleToolPage2ViewController.designer.cs">
+      <DependentUpon>AnotherSampleToolPage2ViewController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonoKit.iOS\MonoKit.iOS.csproj">
+      <Project>{abe22d63-b716-4c58-9a59-5915f47968d4}</Project>
+      <Name>MonoKit.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoKit\MonoKit.csproj">
+      <Project>{7ba35695-77b9-4237-ae28-396b0e5ddf7f}</Project>
+      <Name>MonoKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VirtualSales.Core\VirtualSales.Core.csproj">
+      <Project>{c6acd8ae-c56d-4d5f-b510-350aea4ce5f7}</Project>
+      <Name>VirtualSales.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VirtualSales.Models\VirtualSales.Models.csproj">
+      <Project>{f54fdbab-15ab-443c-9c86-998ccb96b98d}</Project>
+      <Name>VirtualSales.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="IG">
+      <HintPath>..\Libs\Infragistics\iOS\IG.dll</HintPath>
+    </Reference>
+    <Reference Include="IGChart">
+      <HintPath>..\Libs\Infragistics\iOS\IGChart.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI, Version=5.99.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\reactiveui-core.5.99.2-beta\lib\Portable-Net45+WinRT45+WP8\ReactiveUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Cocoa, Version=5.99.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\reactiveui-platforms.5.99.2-beta\lib\Monotouch\ReactiveUI.Cocoa.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.1.1\lib\monotouch\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net45+win8\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.2\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.2\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.2\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Rx-PlatformServices.2.2.2\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="Assets\arrowIpad%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\arrowIpad.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-29%402x-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-29%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-29-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-40%402x-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-40%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-40.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-50%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-57%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-57.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-60%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-72%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-72.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-76%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon-76.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\launchimage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\MM-logo-ios.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\reverse_camera%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\reverse_camera.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\splash_landscape%402x.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\splash_landscape.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+</Project>

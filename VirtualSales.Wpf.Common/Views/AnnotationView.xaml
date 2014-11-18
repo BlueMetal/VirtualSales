@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.AnnotationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:VirtualSales.Wpf.Views"
+             xmlns:behaviors="clr-namespace:VirtualSales.Wpf.Behaviors"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             x:Name="annotationSurface"
+             behaviors:SizeObserver.Observe="True"
+             behaviors:SizeObserver.ObservedWidth="{Binding SurfaceSize.Width, Mode=OneWayToSource}"
+             behaviors:SizeObserver.ObservedHeight="{Binding SurfaceSize.Height, Mode=OneWayToSource}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="stroke" Color="Red"></SolidColorBrush>
+        <SolidColorBrush x:Key="fill" Color="Transparent"></SolidColorBrush>
+        <sys:Double x:Key="thickness">2</sys:Double>
+    </UserControl.Resources>
+    <ItemsControl ItemsSource="{Binding Path=Annotations}" x:Name="annotationsItemsControl">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <views:AnnotationCanvas IsEditing="{Binding ElementName=annotationSurface, Path=DataContext.IsEditing, Mode=TwoWay}" 
+                                        CurrentAnnotationType="{Binding ElementName=annotationSurface, Path=DataContext.AnnotationTools.Type, Mode=TwoWay}" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemContainerStyle>
+            <Style>
+                <!--These setters will control the position of the shape; the DataContext here is CanvasShape-->
+                <Setter Property="Canvas.Top" Value="{Binding Top}"/>
+                <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+            </Style>
+        </ItemsControl.ItemContainerStyle>
+        <ItemsControl.ItemTemplateSelector>
+            <views:AnnotationTemplateSelector>
+                <views:AnnotationTemplateSelector.LineTemplate>
+                    <DataTemplate>
+                        <Line Stroke="{StaticResource stroke}"
+                              StrokeThickness="{StaticResource thickness}"                              
+                              X1="{Binding X1}" 
+                              X2="{Binding X2}" 
+                              Y1="{Binding Y1}" 
+                              Y2="{Binding Y2}" />
+                    </DataTemplate>
+                </views:AnnotationTemplateSelector.LineTemplate>
+                <views:AnnotationTemplateSelector.RectangleTemplate>
+                    <DataTemplate>
+                        <Rectangle Stroke="{StaticResource stroke}"
+                                   StrokeThickness="{StaticResource thickness}"
+                                   Width="{Binding Width}" 
+                                   Height="{Binding Height}" />
+                    </DataTemplate>
+                </views:AnnotationTemplateSelector.RectangleTemplate>
+                <views:AnnotationTemplateSelector.AdHocTemplate>
+                    <DataTemplate>
+                        <Path Stroke="{StaticResource stroke}"
+                              StrokeThickness="{StaticResource thickness}"
+                              Data="{Binding PathMarkup}"/>
+                    </DataTemplate>
+                </views:AnnotationTemplateSelector.AdHocTemplate>
+                <views:AnnotationTemplateSelector.EllipseTemplate>
+                    <DataTemplate>
+                        <Ellipse Stroke="{StaticResource stroke}"
+                                 StrokeThickness="{StaticResource thickness}"
+                                 Width="{Binding Width}" 
+                                 Height="{Binding Height}" />
+                    </DataTemplate>
+                </views:AnnotationTemplateSelector.EllipseTemplate>
+            </views:AnnotationTemplateSelector>
+        </ItemsControl.ItemTemplateSelector>
+    </ItemsControl>
+</UserControl>

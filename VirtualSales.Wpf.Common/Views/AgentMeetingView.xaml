@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.AgentMeetingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:VirtualSales.Core.ViewModels;assembly=VirtualSales.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="600" d:DataContext="{d:DesignInstance viewModels:AgentMeetingViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="10,5,10,5" />
+                    <Setter Property="FontSize" Value="20"></Setter>
+                </Style>
+            </Grid.Resources>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Button Command="{Binding StartMeetingCommand}" Grid.Column="0">Start Meeting</Button>
+            <Button Command="{Binding EndMeetingCommand}" Grid.Column="1">End Meeting</Button>
+            <Button Command="{Binding SavePdfCommand}" Grid.Column="2">Save/Launch PDF</Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock Margin="10,5,10,5" FontSize="16" Text="{Binding MeetingStatus}"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="2">                         
+            <ContentPresenter Content="{Binding Meeting}" />
+        </Grid>
+    </Grid>
+</UserControl>

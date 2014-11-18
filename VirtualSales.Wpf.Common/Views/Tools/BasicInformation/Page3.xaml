@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.Tools.BasicInformation.Page3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:editors="http://infragistics.com/Editors"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+  <UserControl.Resources>
+    <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../SharedInputStyles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+  </UserControl.Resources>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Label Grid.Row="0"  Target="addr1Entry">Address Line 1:</Label>
+    <Label Grid.Row="1" Target="addr2Entry">Address Line 2:</Label>
+    <Label Grid.Row="2" Target="cityEntry">City:</Label>
+    <Label Grid.Row="3" Target="stateEntry">State:</Label>
+    <Label Grid.Row="4" Target="zipEntry">Zip Code:</Label>
+
+    <editors:XamTextEditor Grid.Column="1" Grid.Row="0" Value="{Binding Person.Addr1}" x:Name="addr1Entry"></editors:XamTextEditor>
+    <editors:XamTextEditor Grid.Column="1" Grid.Row="1" Value="{Binding Person.Addr2}" x:Name="addr2Entry"></editors:XamTextEditor>
+    <editors:XamTextEditor Grid.Column="1" Grid.Row="2" Value="{Binding Person.City}" x:Name="cityEntry"></editors:XamTextEditor>
+    <editors:XamTextEditor Grid.Column="1" Grid.Row="3" Value="{Binding Person.State}" x:Name="stateEntry"></editors:XamTextEditor>
+    <editors:XamTextEditor Grid.Column="1" Grid.Row="4" Value="{Binding Person.Zip}" x:Name="zipEntry"></editors:XamTextEditor>
+  </Grid>
+</UserControl>

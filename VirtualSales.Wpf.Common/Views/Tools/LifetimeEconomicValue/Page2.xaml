@@ -1,0 +1,59 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:tools="clr-namespace:VirtualSales.Core.ViewModels.Tools;assembly=VirtualSales.Core"
+             xmlns:ig="http://schemas.infragistics.com/xaml" x:Class="VirtualSales.Wpf.Views.Tools.LifetimeEconomicValue.Page2"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800" d:DataContext="{d:DesignInstance {x:Type tools:LifetimeEconomicValueViewModel+Page2}}">
+    <UserControl.Resources>
+
+        <LinearGradientBrush x:Key="gradientBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#E6B632" Offset="0"/>
+            <GradientStop Color="#9C7B21" Offset="0.399"/>
+            <GradientStop Color="#AB0000" Offset="0.401"/>
+            <GradientStop Color="#7A0000" Offset="0.599"/>
+            <GradientStop Color="#005E0D" Offset="0.601"/>
+            <GradientStop Color="#009114" Offset="1"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+        <TextBlock Margin="100,60,100,10" MaxWidth="600"
+                    TextWrapping="Wrap"
+                   Text="{Binding InvalidInputsMessage}" 
+                   Visibility="{Binding HasInvalidInputs, Converter={StaticResource booleanToVisibilityConverter}}" />
+        <ig:XamDataChart Grid.Row="0" MaxWidth="600" MaxHeight="450" Margin="20" Visibility="{Binding HasValidInputs, Converter={StaticResource booleanToVisibilityConverter}}">
+            <ig:XamDataChart.Axes>
+                <ig:CategoryXAxis x:Name="xAxis" ItemsSource="{Binding DataPoints}" Label="{}{Category}" />
+                <ig:NumericYAxis x:Name="yAxis" MinimumValue="0" >
+                    <ig:NumericYAxis.Label>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <Binding Path="Item"  StringFormat="{}{0:C0}"></Binding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ig:NumericYAxis.Label>
+                </ig:NumericYAxis>
+            </ig:XamDataChart.Axes>
+           <ig:XamDataChart.Series>
+                <ig:AreaSeries 
+                    XAxis="{Binding ElementName=xAxis}"
+                    YAxis="{Binding ElementName=yAxis}"
+                    Brush="{StaticResource gradientBrush}"
+                    ItemsSource="{Binding DataPoints}"
+                    ValueMemberPath="Value" />
+            </ig:XamDataChart.Series>
+        </ig:XamDataChart>
+
+      <TextBlock Margin="100,10,100,10" MaxWidth="600" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" 
+                 Text="This is an estimate of your Lifetime Economic Value to your dependents. It is a measure of the total economic value you will provide to your loved ones over the course of your career. It is an estimate of what it would cost today to replace you as a provider for your dependents."></TextBlock>
+    </Grid>
+</UserControl>

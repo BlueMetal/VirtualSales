@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.AnnotationsTools"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>  
+
+        <ToggleButton Grid.Column="0" IsChecked="{Binding LineActive, Mode=TwoWay}"  
+                      Command="{Binding LineCommand}">Line</ToggleButton>
+        
+        <ToggleButton Grid.Column="1" IsChecked="{Binding EllipseActive, Mode=TwoWay}" 
+                      Command="{Binding EllipseCommand}">Ellipse</ToggleButton>
+        
+        <ToggleButton Grid.Column="2" IsChecked="{Binding RectActive, Mode=TwoWay}" 
+                      Command="{Binding RectCommand}">Rectangle</ToggleButton>
+        
+        <ToggleButton Grid.Column="3" IsChecked="{Binding FreeDrawActive, Mode=TwoWay}" 
+                      Command="{Binding FreeDrawCommand}">Free Draw</ToggleButton>
+        
+        <Button Grid.Column="4" Command="{Binding UndoCommand}">Undo</Button>
+    </Grid>
+</UserControl>

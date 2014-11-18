@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:tools="clr-namespace:VirtualSales.Core.ViewModels.Tools;assembly=VirtualSales.Core"
+                    xmlns:typesOfInsurance="clr-namespace:VirtualSales.Wpf.Views.Tools.TypesOfInsurance">
+    <DataTemplate DataType="{x:Type tools:TypesOfInsuranceViewModel+Page1}">
+        <typesOfInsurance:Page1 />
+    </DataTemplate>
+</ResourceDictionary>

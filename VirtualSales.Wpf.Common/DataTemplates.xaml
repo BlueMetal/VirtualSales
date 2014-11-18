@@ -1,0 +1,93 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModels="clr-namespace:VirtualSales.Core.ViewModels;assembly=VirtualSales.Core"
+                    xmlns:annotationViewModels="clr-namespace:VirtualSales.Core.ViewModels.Annotations;assembly=VirtualSales.Core"
+                    xmlns:views="clr-namespace:VirtualSales.Wpf.Views"
+                    xmlns:converters="clr-namespace:VirtualSales.Wpf.Converters">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Views/Tools/SampleTool/SampleToolPages.xaml" />
+        <ResourceDictionary Source="Views/Tools/AnotherSampleTool/AnotherSampleToolPages.xaml" />
+        <ResourceDictionary Source="Views/Tools/DivInterestRates/DividendInterestRates.xaml" />
+        <ResourceDictionary Source="Views/Tools/TypesOfInsurance/TypesOfInsurance.xaml" />
+        <ResourceDictionary Source="Views/Tools/LifetimeEconomicValue/LifetimeEconomicValue.xaml" />
+        <ResourceDictionary Source="Views/Tools/BasicInformation/BasicInformationToolPages.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <converters:FriendlyTimeSpanConverter x:Key="friendlyTime" />
+    <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+        <views:LoginView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type annotationViewModels:AnnotationToolViewModel}">
+        <views:AnnotationsTools />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type annotationViewModels:ClientAnnotationViewModel}">
+        <views:AnnotationView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type annotationViewModels:AgentAnnotationViewModel}">
+        <views:AnnotationView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ClientLobbyViewModel}">
+        <views:LobbyView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:AgentMeetingViewModel}">
+        <views:AgentMeetingView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:MeetingListViewModel}">
+        <views:MeetingListView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ClientMeetingViewModel}">
+        <views:ClientMeetingView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:MeetingViewModel}">
+        <views:MeetingView />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MeetingSummaryDataTemplate" DataType="{x:Type viewModels:MeetingViewModel}">
+        <Grid Margin="10,5,10,5" Height="50">
+            <Grid.Resources>
+                <Style x:Key="SecondaryTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="FontSize" Value="12"></Setter>
+                    <Setter Property="FontStyle" Value="Italic"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <TextBlock Text="{Binding Client.FullName}" />
+                <TextBlock Margin="10,0,0,0" Text="{Binding Client.PhoneNumber}" />
+           </StackPanel>
+            
+            <TextBlock Text="{Binding Status}" Grid.Row="0" Grid.Column="1"></TextBlock>
+
+            <TextBlock Style="{StaticResource SecondaryTextBlockStyle}" Margin="0,5,0,5" Grid.Row="1" Grid.Column="1" Text="{Binding Identifier}" />
+            
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBlock Style="{StaticResource SecondaryTextBlockStyle}" Text="{Binding StartTime, StringFormat=g}" />
+                <TextBlock Style="{StaticResource SecondaryTextBlockStyle}" Margin="30,0,0,0" Text="{Binding Duration, Converter={StaticResource friendlyTime}}" />
+            </StackPanel>
+
+
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding StartTime}" />
+            <TextBlock Grid.Column="1" Text="{Binding Duration}"/>
+            <ContentPresenter Grid.Column="2" Content="{Binding Client}" />-->
+        </Grid>
+    </DataTemplate>
+    
+</ResourceDictionary>

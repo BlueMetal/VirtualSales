@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:VirtualSales.Core.ViewModels;assembly=VirtualSales.Core"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="600" d:DataContext="{d:DesignInstance viewModels:LoginViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition  />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="3">
+            <Image HorizontalAlignment="Center" MaxWidth="550"  Margin="40,10,40,10" Source="pack://application:,,,/VirtualSales.Wpf.Common;component/ImageAssets/whitebrand-logo@2x.png"></Image>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom">
+            <TextBlock FontSize="16" Text="Welcome to the WhiteBrand Virtual Sales app." />
+            <TextBlock FontSize="16" Text="Please login to continue."/>
+        </StackPanel>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="100"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Content="Username" Target="{Binding ElementName=LoginBox}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" controls:TextboxHelper.ClearTextButton="True"
+                     Margin="0,10,0,10" 
+                     FontSize="16"
+                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+                     x:Name="LoginBox"  />
+            <Label Grid.Row="1" Grid.Column="0" Content="Password" Target="{Binding ElementName=Password}" />
+            <TextBox Grid.Row="1" Grid.Column="1" controls:TextboxHelper.ClearTextButton="True"
+                     FontSize="16"
+                     Margin="0,10,0,10"
+                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
+                     x:Name="Password" />
+            <Button Grid.Row="2" Grid.Column="1" Content="Login" 
+                    FontSize="20"
+                    Command="{Binding LoginCommand}" Margin="0,10,0,0" Height="50"/>
+        </Grid>
+    </Grid>
+</UserControl>

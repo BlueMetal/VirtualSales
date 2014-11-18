@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BA35695-77B9-4237-AE28-396B0E5DDF7F}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MonoKit</RootNamespace>
+    <AssemblyName>MonoKit</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <NoStdLib>True</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="DataBinding\Binding.cs" />
+    <Compile Include="DataBinding\BindingOperations.cs" />
+    <Compile Include="DataBinding\BindingExpression.cs" />
+    <Compile Include="DataBinding\IValueConverter.cs" />
+    <Compile Include="DataBinding\BooleanToStringConverter.cs" />
+    <Compile Include="DataBinding\BindingDefinition.cs" />
+    <Compile Include="DataBinding\BindingTemplate.cs" />
+    <Compile Include="DataBinding\AttachedProperty.cs" />
+    <Compile Include="DataBinding\DataContextAttachedProperty.cs" />
+    <Compile Include="DataBinding\AttachedPropertyChangedEventArgs.cs" />
+    <Compile Include="DataBinding\PropertyChangedCallback.cs" />
+    <Compile Include="DataBinding\AttachedPropertyMetadata.cs" />
+    <Compile Include="DataBinding\AttachedPropertyExtensions.cs" />
+    <Compile Include="Interactivity\Behaviour.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IEdit.cs" />
+    <Compile Include="KeyValueWeakReference.cs" />
+    <Compile Include="ReflectionExtensions.cs" />
+    <Compile Include="UI\ViewDefinition.cs" />
+    <Compile Include="UI\IViewDefinition.cs" />
+    <Compile Include="UI\IDataViewWrapper.cs" />
+    <Compile Include="EventProxy.cs" />
+    <Compile Include="Data\IRepository_T.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
+    <Compile Include="Data\IUnitOfWorkScope.cs" />
+    <Compile Include="Tasks\LimitedConcurrencyLevelTaskScheduler.cs" />
+    <Compile Include="Tasks\SyncTaskScheduler.cs" />
+    <Compile Include="Data\SyncRepository_T.cs" />
+    <Compile Include="Reactive\Disposables\Disposable.cs" />
+    <Compile Include="Reactive\Disposables\NullDisposable.cs" />
+    <Compile Include="Reactive\Subjects\Subject_T.cs" />
+    <Compile Include="Reactive\AnonymousObservable_T.cs" />
+    <Compile Include="Reactive\AnonymousObserver_T.cs" />
+    <Compile Include="Reactive\Disposables\AnonymousDisposable.cs" />
+    <Compile Include="Reactive\Unit.cs" />
+    <Compile Include="Reactive\Disposables\CompositeDisposable.cs" />
+    <Compile Include="Reactive\Concurrency\IScheduler.cs" />
+    <Compile Include="ObservableExtensions.cs" />
+    <Compile Include="Reactive\Concurrency\ImmediateScheduler.cs" />
+    <Compile Include="Reactive\Observer.cs" />
+    <Compile Include="Reactive\ScheduledObserver.cs" />
+    <Compile Include="Reactive\EmptyActions.cs" />
+    <Compile Include="Reactive\Linq\Observable.cs" />
+    <Compile Include="Data\IRepositoryUnitOfWork_T.cs" />
+    <Compile Include="Tasks\SyncScheduler.cs" />
+    <Compile Include="Data\IObservableRepository.cs" />
+    <Compile Include="Data\UnitOfWorkRepository_T.cs" />
+    <Compile Include="Data\DictionaryRepository_T.cs" />
+    <Compile Include="Data\IdLock.cs" />
+    <Compile Include="MethodExecutor.cs" />
+    <Compile Include="Data\IConnectedRepository.cs" />
+    <Compile Include="Tasks\SynchronousTask.cs" />
+    <Compile Include="Data\IRepository_TData_TKey.cs" />
+    <Compile Include="DataBinding\DecimalToStringConverter.cs" />
+    <Compile Include="DataBinding\DateTimeToStringConverter.cs" />
+    <Compile Include="Data\SaveResult.cs" />
+    <Compile Include="Data\IId.cs" />
+    <Compile Include="Data\IDataChangeEvent.cs" />
+    <Compile Include="Data\DataChangeKind.cs" />
+    <Compile Include="Data\DataChangeEvent.cs" />
+    <Compile Include="Data\DataChangeEvent_T.cs" />
+    <Compile Include="INotification.cs" />
+    <Compile Include="INotificationEvent.cs" />
+    <Compile Include="INotificationEventBus.cs" />
+    <Compile Include="NotificationEvent.cs" />
+  </ItemGroup>
+</Project>

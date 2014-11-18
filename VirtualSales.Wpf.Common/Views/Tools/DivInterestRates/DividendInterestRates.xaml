@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:tools="clr-namespace:VirtualSales.Core.ViewModels.Tools;assembly=VirtualSales.Core"
+                    xmlns:divInterestRates="clr-namespace:VirtualSales.Wpf.Views.Tools.DivInterestRates">
+    <DataTemplate DataType="{x:Type tools:DividendInterestRatesViewModel+Page1}">
+        <divInterestRates:Page1 />
+    </DataTemplate>
+</ResourceDictionary>

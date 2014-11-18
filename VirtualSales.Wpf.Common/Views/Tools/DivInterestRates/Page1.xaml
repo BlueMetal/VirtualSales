@@ -1,0 +1,27 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:tools="clr-namespace:VirtualSales.Core.ViewModels.Tools;assembly=VirtualSales.Core"
+             x:Class="VirtualSales.Wpf.Views.Tools.DivInterestRates.Page1" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="750" 
+             d:DataContext="{d:DesignInstance tools:DividendInterestRatesViewModel+Page1}">
+    <Grid>
+        <DataGrid HorizontalAlignment="Left"
+                  Background="Transparent"
+                  Margin="67,25,0,0" VerticalAlignment="Top" Width="288" AutoGenerateColumns="False" ItemsSource="{Binding Rates}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Item1, Mode=OneWay, StringFormat=yyyy}" Header="Year" MinWidth="75" CanUserSort="False" CanUserReorder="False" CanUserResize="False"/>
+                <DataGridTextColumn Binding="{Binding Item2, Mode=OneWay, StringFormat=P2}" Header="Dividend interest rate" CanUserSort="False" CanUserReorder="False" CanUserResize="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock
+            Typography.Capitals="SmallCaps" FontFamily="Sans"
+            HorizontalAlignment="Left" Height="81" Margin="386,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="275">
+            Not a bank or credit union deposit or obligation. Not FDIC or NCUA insured. Not insured by any federal government agency. Not guaranteed by any bank or credit union.
+        </TextBlock>
+
+    </Grid>
+</UserControl>

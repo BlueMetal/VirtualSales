@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.MeetingListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:VirtualSales.Core.ViewModels;assembly=VirtualSales.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="600" d:DataContext="{d:DesignInstance viewModels:MeetingListViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+            <Button Margin="10,5,10,5" FontSize="16" Content="Enter Meeting" Command="{Binding EnterMeetingCommand}"/>
+        <ListView Margin="10" Grid.Row="1"
+                      ScrollViewer.PanningMode="HorizontalOnly"
+                ItemsSource="{Binding Meetings}"
+                SelectedItem="{Binding SelectedMeeting}"
+                ItemTemplate="{StaticResource MeetingSummaryDataTemplate}"
+                >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                    <Setter Property="BorderBrush" Value="#ACA8A3" />
+                    <Setter Property="Margin" Value="0,0,0,5" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</UserControl>

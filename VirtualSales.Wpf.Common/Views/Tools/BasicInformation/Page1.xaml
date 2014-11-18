@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="VirtualSales.Wpf.Views.Tools.BasicInformation.Page1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ig="http://schemas.infragistics.com/xaml"
+             xmlns:editors="http://infragistics.com/Editors"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:models="clr-namespace:VirtualSales.Models;assembly=VirtualSales.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../SharedInputStyles.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <x:Array x:Key="GenderArray" Type="{x:Type models:Gender}">
+                <x:Static Member="models:Gender.Male" />
+                <x:Static Member="models:Gender.Female" />
+            </x:Array>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"  Target="firstNameEntry">First Name:</Label>
+        <Label Grid.Row="1" Target="lastNameEntry">Last Name:</Label>
+        <Label Grid.Row="2" Target="dateOfBirthEntry">Date of Birth:</Label>
+        <Label Grid.Row="3" Target="genderEntry">Gender:</Label>
+        <Label Grid.Row="4" Target="smokerEntry">Smoker?</Label>
+        <Label Grid.Row="5" Target="numOfDependentsEntry">Dependents:</Label>
+
+
+
+        <editors:XamTextEditor Grid.Column="1" Grid.Row="0" Value="{Binding Person.FirstName}" x:Name="firstNameEntry"></editors:XamTextEditor>
+        <editors:XamTextEditor Grid.Column="1" Grid.Row="1" Value="{Binding Person.LastName}" x:Name="lastNameEntry"></editors:XamTextEditor>
+        <editors:XamDateTimeEditor Grid.Column="1" Grid.Row="2" Value="{Binding Person.DateOfBirth}" x:Name="dateOfBirthEntry" Mask="{}{date}"></editors:XamDateTimeEditor>
+        <editors:XamComboEditor Grid.Column="1" Grid.Row="3" Value="{Binding Person.Gender}" 
+                                ItemsSource="{Binding Source={StaticResource GenderArray}}" 
+                                ValueType="{x:Type models:Gender}"    
+                                IsEditable="False"
+                                x:Name="genderEntry"></editors:XamComboEditor>
+        <editors:XamCheckEditor Grid.Column="1" Grid.Row="4" Value="{Binding Person.IsSmoker}" 
+                                x:Name="smokerEntry"></editors:XamCheckEditor>
+        <editors:XamNumericEditor Grid.Column="1" Grid.Row="5" Value="{Binding Person.NumOfDependents}" Mask="{}{number:0-10}" ValueType="{x:Type system:Int32}" x:Name="numOfDependentsEntry"></editors:XamNumericEditor>
+
+    </Grid>
+</UserControl>

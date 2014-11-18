@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:tools="clr-namespace:VirtualSales.Core.ViewModels.Tools;assembly=VirtualSales.Core"
+                    xmlns:sampleTool="clr-namespace:VirtualSales.Wpf.Views.Tools.SampleTool">
+    <DataTemplate DataType="{x:Type tools:SampleToolViewModel+Page1}">
+        <sampleTool:Page1 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type tools:SampleToolViewModel+Page2}">
+        <sampleTool:Page2 />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type tools:SampleToolViewModel+Page3}">
+        <sampleTool:Page3 />
+    </DataTemplate>
+</ResourceDictionary>
